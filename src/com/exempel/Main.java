@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    static booksAdded[] books = new booksAdded[10];
+    static Books[] books = new Books[10];
     static boolean repeat = true;
     static Scanner scan = new Scanner(System.in);
-    static String decision;
     static int counter = 0;
     
    public static  void  options(){
+
+       String decision;
 
         boolean exit = true;
 
@@ -28,14 +29,16 @@ public class Main {
 
     public static void menu() {
 
+        System.out.println();
         System.out.println("              BookStore              ");
         System.out.println("======================================");
         System.out.println("              Main Menu             ");
         System.out.println("======================================");
         System.out.println("1. Add Book");
-        System.out.println("2. Book Detail");
+        System.out.println("2. Show Book");
         System.out.println("3. Update Book");
         System.out.println("4. Delete Book");
+        System.out.println("5. Show Book by id");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -60,20 +63,40 @@ public class Main {
                 break;
 
             case 3:
-                updateBook();
+                updateBookByPrice();
                 break;
 
             case 4:
                 removeBook();
                 break;
 
+            case 5:
+                showBookById();
+                break;
+
             default:
-                System.out.println("Invalid options! Try again!");
+                System.out.println("Invalid command! Try again!");
 
         }
     }
 
-   public static void main(String[] args) {
+    private static void showBookById() {
+        System.out.println("Id:");
+        int id = scan.nextInt();
+        scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if (books[i].getBookId() == id){
+
+                System.out.println(books[i]);
+
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+       fillMockDB();
 
         while (repeat){
             menu();
@@ -81,11 +104,33 @@ public class Main {
 
     }
 
+    private static void fillMockDB() {
+       Books b1 = new Books(1, "Dracula", "Bram Stoker", "Horror", "1897", 10);
+       books[counter] = b1;
+       counter++;
+
+       Books b2 = new Books(2, "The Dark Tower: The Gunslinger", "Fantasy", "Horror", "1982", 10);
+       books[counter] = b2;
+       counter++;
+
+       Books b3 = new Books(3, "The Man In The High Castle", "Philip K. Dick", "Alternate History", "1962", 10);
+       books[counter] = b3;
+       counter++;
+
+       Books b4 = new Books(4, "Metro 2033", "Dmitry Glukhovsky", "Post-Apocalyptic", "2005", 10);
+       books[counter] = b4;
+       counter++;
+
+       Books b5 = new Books(5, "Pride And Prejudice", "Jane Austin", "Romance", "1813", 10);
+       books[counter] = b5;
+       counter++;
+    }
+
     public static void addBook(){
 
         System.out.println("id: ");
         int bookId = scan.nextInt();
-        scan.nextInt();
+        scan.nextLine();
 
         System.out.println("title: ");
         String title = scan.nextLine();
@@ -103,20 +148,58 @@ public class Main {
         double price = scan.nextInt();
         scan.nextLine();
 
-        booksAdded b = new booksAdded(bookId, title, author, genre, year, price);
-        books[counter] =b;
+        Books b = new Books(bookId, title, author, genre, year, price);
+        if (books.length == counter){
 
-    }
+            Books[] temp = new Books[books.length * 2];
 
-    public static void viewBook(){
+            System.arraycopy(books, 0, temp, 0, books.length);
 
-    }
-
-    public static void updateBook(){
-
+            books = temp;
+        }
+        books[counter] = b;
+        counter++;
     }
 
     public static void removeBook(){
 
+        System.out.print("Book Id: ");
+        int bookId = scan.nextInt();
+
+        for (int i = 0; i < counter; i++) {
+
+           if( books[i].getBookId() == bookId){
+
+               books[i] = books[counter - 1];
+               books[counter - 1] = null;
+               counter--;
+           }
+        }
+    }
+
+    public static void viewBook(){
+        for (int i = 0; i < counter; i++) {
+
+            System.out.println(books[i]);
+        }
+    }
+
+    public static void updateBookByPrice(){
+
+        System.out.print("Book Id: ");
+        int bId = scan.nextInt();
+        scan.nextLine();
+
+        System.out.print("New Price:");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setPrice(price);
+            }
+        }
     }
 }

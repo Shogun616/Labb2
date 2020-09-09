@@ -1,6 +1,6 @@
 package com.exempel;
 
-public class booksAdded {
+public class Books {
 
     protected int bookId;
     private String title;
@@ -9,12 +9,10 @@ public class booksAdded {
     private String year;
     private double price;
 
-    private static String storeName = "Book ";
-
-    public booksAdded() {
+    public Books() {
     }
 
-    public booksAdded( int bookId, String title, String author, String genre, String year, double price){
+    public Books(int bookId, String title, String author, String genre, String year, double price){
 
         if (price > 0){
             this.price = price;
@@ -26,6 +24,7 @@ public class booksAdded {
         this.author = author;
         this.genre = genre;
         this.year = year;
+        this.bookId = bookId;
 
     }
 
@@ -69,16 +68,16 @@ public class booksAdded {
         this.year = year;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public void setPrice(double price) {
-        if (price > 0){
+        if(price > 0){
             this.price = price;
         }else {
-            System.out.println("The price that you added have a negative value, please try again");
+            System.out.println("The Price that you added have negative values, please try agian!");
         }
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     @Override
