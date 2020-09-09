@@ -60,7 +60,7 @@ public class Main {
                 break;
 
             case 3:
-                updatebook();
+                updateBook();
                 break;
 
             case 4:
@@ -112,7 +112,7 @@ public class Main {
 
     }
 
-    public static void updatebook(){
+    public static void updateBook(){
 
     }
 
