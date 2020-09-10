@@ -40,8 +40,11 @@ public class Main extends Books{
         System.out.println("5. Show Book by id");
         System.out.println("6. Show Book by Genre");
         System.out.println("7. Show Book by Author");
-        System.out.println("8. Add Favorite");
-        System.out.println("9. Show Favorite");
+        System.out.println("8. Show Book By Title");
+        System.out.println("9. Show Book By Year");
+        System.out.println("10. Add Favorite");
+        System.out.println("11. Show Favorite");
+        System.out.println("12. Remove Favorite");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -85,9 +88,39 @@ public class Main extends Books{
                 showBookByAuthor();
                 break;
 
+            case 8:
+                showBookByTitle();
+                break;
+
+            case 9:
+                showBookByYear();
+                break;
+
             default:
                 System.out.println("Invalid command! Try again!");
 
+        }
+    }
+
+    private static void showBookByYear() {
+        System.out.println("Year: ");
+        String year = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(books[i].getYear().equals(year)){
+                System.out.println(books[i]);
+            }
+        }
+    }
+
+    private static void showBookByTitle() {
+        System.out.println("Title: ");
+        String title = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(books[i].getTitle().equals(title)){
+                System.out.println(books[i]);
+            }
         }
     }
 
