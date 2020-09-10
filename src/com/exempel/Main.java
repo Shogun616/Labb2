@@ -2,16 +2,15 @@ package com.exempel;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Books{
 
     static Books[] books = new Books[10];
     static boolean repeat = true;
+    static String decision;
     static Scanner scan = new Scanner(System.in);
     static int counter = 0;
     
    public static  void  options(){
-
-       String decision;
 
         boolean exit = true;
 
@@ -39,6 +38,10 @@ public class Main {
         System.out.println("3. Update Book");
         System.out.println("4. Delete Book");
         System.out.println("5. Show Book by id");
+        System.out.println("6. Show Book by Genre");
+        System.out.println("7. Show Book by Author");
+        System.out.println("8. Add Favorite");
+        System.out.println("9. Show Favorite");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -63,7 +66,7 @@ public class Main {
                 break;
 
             case 3:
-                updateBookByPrice();
+                updateBook();
                 break;
 
             case 4:
@@ -74,9 +77,39 @@ public class Main {
                 showBookById();
                 break;
 
+            case 6:
+                showBookByGenre();
+                break;
+
+            case 7:
+                showBookByAuthor();
+                break;
+
             default:
                 System.out.println("Invalid command! Try again!");
 
+        }
+    }
+
+    private static void showBookByAuthor() {
+        System.out.println("Author: ");
+        String auth = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(books[i].getAuthor().equals(auth)){
+                System.out.println(books[i]);
+            }
+        }
+    }
+
+    private static void showBookByGenre() {
+        System.out.println("Genre: ");
+        String gnr = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(books[i].getGenre().equals(gnr)){
+                System.out.println(books[i]);
+            }
         }
     }
 
@@ -95,21 +128,12 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-       fillMockDB();
-
-        while (repeat){
-            menu();
-        }
-
-    }
-
     private static void fillMockDB() {
        Books b1 = new Books(1, "Dracula", "Bram Stoker", "Horror", "1897", 10);
        books[counter] = b1;
        counter++;
 
-       Books b2 = new Books(2, "The Dark Tower: The Gunslinger", "Fantasy", "Horror", "1982", 10);
+       Books b2 = new Books(2, "The Dark Tower: The Gunslinger", "Stephen King", "Fantasy", "1982", 10);
        books[counter] = b2;
        counter++;
 
@@ -184,11 +208,55 @@ public class Main {
         }
     }
 
-    public static void updateBookByPrice(){
+    public static void updateBook(){
 
         System.out.print("Book Id: ");
         int bId = scan.nextInt();
         scan.nextLine();
+
+        System.out.print("New Title: ");
+        String title = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setTitle(title);
+            }
+        }
+
+        System.out.print("New Author: ");
+        String auth = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setAuthor(auth);
+            }
+        }
+
+        System.out.print("New Genre: ");
+        String gnr = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setGenre(gnr);
+            }
+        }
+
+        System.out.print("New Year: ");
+        String year = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setYear(year);
+            }
+        }
 
         System.out.print("New Price:");
         double price = scan.nextDouble();
@@ -201,5 +269,15 @@ public class Main {
                 books[i].setPrice(price);
             }
         }
+    }
+
+    public static void main(String[] args) {
+
+        fillMockDB();
+
+        while (repeat){
+            menu();
+        }
+
     }
 }

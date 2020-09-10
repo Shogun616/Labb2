@@ -72,7 +72,7 @@ public class Books {
         if(price > 0){
             this.price = price;
         }else {
-            System.out.println("The Price that you added have negative values, please try agian!");
+            System.out.println("The Price that you added have negative values, please try again!");
         }
     }
 
@@ -82,7 +82,7 @@ public class Books {
 
     @Override
     public String toString() {
-        return "booksAdded{" +
+        return "books{" +
                 "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
