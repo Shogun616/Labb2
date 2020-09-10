@@ -1,6 +1,6 @@
 package com.exempel;
 
-public class Books {
+public class Books extends Favorite{
 
     protected int bookId;
     private String title;

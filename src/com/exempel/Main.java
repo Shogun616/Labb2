@@ -214,6 +214,18 @@ public class Main extends Books{
         int bId = scan.nextInt();
         scan.nextLine();
 
+        System.out.print("Book Id: ");
+        int id = scan.nextInt();
+        scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                books[i].setBookId(id);
+            }
+        }
+
         System.out.print("New Title: ");
         String title = scan.nextLine();
 
