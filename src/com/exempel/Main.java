@@ -2,9 +2,14 @@ package com.exempel;
 
 import java.util.Scanner;
 
-public class Main extends Books{
+public class Main{
 
-    static Books[] books = new Books[10];
+    static Books[] books = new Books[5];
+    static Author[] authors = new Author[5];
+    static Price[] prices = new Price[5];
+    static Year[] years = new Year[5];
+    static Genre[] genres = new Genre[5];
+
     static boolean repeat = true;
     static String decision;
     static Scanner scan = new Scanner(System.in);
@@ -37,14 +42,7 @@ public class Main extends Books{
         System.out.println("2. Show Book");
         System.out.println("3. Update Book");
         System.out.println("4. Delete Book");
-        System.out.println("5. Show Book by id");
-        System.out.println("6. Show Book by Genre");
-        System.out.println("7. Show Book by Author");
-        System.out.println("8. Show Book By Title");
-        System.out.println("9. Show Book By Year");
-        System.out.println("10. Add Favorite");
-        System.out.println("11. Show Favorite");
-        System.out.println("12. Remove Favorite");
+        System.out.println("5. Show Book By Title");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -77,23 +75,7 @@ public class Main extends Books{
                 break;
 
             case 5:
-                showBookById();
-                break;
-
-            case 6:
-                showBookByGenre();
-                break;
-
-            case 7:
-                showBookByAuthor();
-                break;
-
-            case 8:
                 showBookByTitle();
-                break;
-
-            case 9:
-                showBookByYear();
                 break;
 
             default:
@@ -102,18 +84,8 @@ public class Main extends Books{
         }
     }
 
-    private static void showBookByYear() {
-        System.out.println("Year: ");
-        String year = scan.nextLine();
-
-        for (int i = 0; i < counter; i++) {
-            if(books[i].getYear().equals(year)){
-                System.out.println(books[i]);
-            }
-        }
-    }
-
     private static void showBookByTitle() {
+
         System.out.println("Title: ");
         String title = scan.nextLine();
 
@@ -124,88 +96,77 @@ public class Main extends Books{
         }
     }
 
-    private static void showBookByAuthor() {
-        System.out.println("Author: ");
-        String auth = scan.nextLine();
-
-        for (int i = 0; i < counter; i++) {
-            if(books[i].getAuthor().equals(auth)){
-                System.out.println(books[i]);
-            }
-        }
-    }
-
-    private static void showBookByGenre() {
-        System.out.println("Genre: ");
-        String gnr = scan.nextLine();
-
-        for (int i = 0; i < counter; i++) {
-            if(books[i].getGenre().equals(gnr)){
-                System.out.println(books[i]);
-            }
-        }
-    }
-
-    private static void showBookById() {
-        System.out.println("Id:");
-        int id = scan.nextInt();
-        scan.nextLine();
-
-        for (int i = 0; i < counter; i++) {
-
-            if (books[i].getBookId() == id){
-
-                System.out.println(books[i]);
-
-            }
-        }
-    }
-
-    private static void fillMockDB() {
-       Books b1 = new Books(1, "Dracula", "Bram Stoker", "Horror", "1897", 10);
-       books[counter] = b1;
-       counter++;
-
-       Books b2 = new Books(2, "The Dark Tower: The Gunslinger", "Stephen King", "Fantasy", "1982", 10);
-       books[counter] = b2;
-       counter++;
-
-       Books b3 = new Books(3, "The Man In The High Castle", "Philip K. Dick", "Alternate History", "1962", 10);
-       books[counter] = b3;
-       counter++;
-
-       Books b4 = new Books(4, "Metro 2033", "Dmitry Glukhovsky", "Post-Apocalyptic", "2005", 10);
-       books[counter] = b4;
-       counter++;
-
-       Books b5 = new Books(5, "Pride And Prejudice", "Jane Austin", "Romance", "1813", 10);
-       books[counter] = b5;
-       counter++;
-    }
-
     public static void addBook(){
 
         System.out.println("id: ");
         int bookId = scan.nextInt();
         scan.nextLine();
 
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bookId){
+
+                books[i].setBookId(bookId);
+            }
+        }
+
         System.out.println("title: ");
         String title = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getTitle().equals(title)){
+
+                books[i].setTitle(title);
+            }
+        }
 
         System.out.println("Author: ");
         String author = scan.nextLine();
 
+        for (int i = 0; i < counter; i++) {
+
+            if(authors[i].getAuthor().equals(author)){
+
+                authors[i].setAuthor(author);
+            }
+        }
+
         System.out.println("Genre: ");
         String genre = scan.nextLine();
 
+        for (int i = 0; i < counter; i++) {
+
+            if(genres[i].getGenre().equals(genre)){
+
+                genres[i].setGenre(genre);
+            }
+        }
+
         System.out.println("Year: ");
         String year = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(years[i].getYear().equals(year)){
+
+                years[i].setYear(year);
+            }
+        }
 
         System.out.println("Price: ");
         double price = scan.nextInt();
         scan.nextLine();
 
-        Books b = new Books(bookId, title, author, genre, year, price);
+        for (int i = 0; i < counter; i++) {
+
+            if(prices[i].getPrice() == price){
+
+                prices[i].setPrice(price);
+            }
+        }
+
+        Books b = new Books();
         if (books.length == counter){
 
             Books[] temp = new Books[books.length * 2];
@@ -235,6 +196,7 @@ public class Main extends Books{
     }
 
     public static void viewBook(){
+
         for (int i = 0; i < counter; i++) {
 
             System.out.println(books[i]);
@@ -277,7 +239,7 @@ public class Main extends Books{
 
             if(books[i].getBookId() == bId){
 
-                books[i].setAuthor(auth);
+                authors[i].setAuthor(auth);
             }
         }
 
@@ -288,7 +250,7 @@ public class Main extends Books{
 
             if(books[i].getBookId() == bId){
 
-                books[i].setGenre(gnr);
+                genres[i].setGenre(gnr);
             }
         }
 
@@ -299,7 +261,7 @@ public class Main extends Books{
 
             if(books[i].getBookId() == bId){
 
-                books[i].setYear(year);
+                years[i].setYear(year);
             }
         }
 
@@ -311,14 +273,57 @@ public class Main extends Books{
 
             if(books[i].getBookId() == bId){
 
-                books[i].setPrice(price);
+                prices[i].setPrice(price);
             }
         }
     }
 
+    private static void fillMockDB() {
+
+        Books b1 = new Books(1, "Dracula");
+        books[counter] = b1;
+        counter++;
+
+        Books b2 = new Books(2, "The Dark Tower: The Gunslinger");
+        books[counter] = b2;
+        counter++;
+
+        Books b3 = new Books(3, "The Man In The High Castle");
+        books[counter] = b3;
+        counter++;
+
+        Books b4 = new Books(4, "Metro 2033");
+        books[counter] = b4;
+        counter++;
+
+        Books b5 = new Books(5, "Pride And Prejudice");
+        books[counter] = b5;
+        counter++;
+
+        Author a1 = new Author(1, "Dracula,", 1, "Bram Stoker", "1875", "12");
+        authors[counter] = a1;
+        counter++;
+
+        Author a2 = new Author(2, "The Dark Tower: The Gunslinger,", 2, "Stephen King", "1974", "62");
+        authors[counter] = a2;
+        counter++;
+
+        Author a3 = new Author(3, "The Man In The High Castle,", 3, "Philip K. Dick", "1950", "49");
+        authors[counter] = a3;
+        counter++;
+
+        Author a4 = new Author(4, "Metro 2033,", 4, "Dmitry Glukhovsky", "2001", "7");
+        authors[counter] = a4;
+        counter++;
+
+        Author a5 = new Author(5, "Pride And Prejudice,", 5, "Jane Austen", "1787", "7");
+        authors[counter] = a5;
+        counter++;
+    }
+
     public static void main(String[] args) {
 
-        fillMockDB();
+       fillMockDB();
 
         while (repeat){
             menu();

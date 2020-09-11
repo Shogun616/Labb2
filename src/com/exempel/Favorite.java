@@ -1,5 +1,5 @@
 package com.exempel;
 
-class Favorite{
+public class Favorite extends Books{
     private int favoriteId;
 }
