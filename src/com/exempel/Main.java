@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Main{
 
-    static ArrayList<String> list = new ArrayList<>();
+    //static ArrayList<Books> bookStores = new ArrayList<>(10);
+    //static ArrayList<Author> authors = new ArrayList<>(10);
 
     static Books[] books = new Books[5];
     static Author[] authors = new Author[5];
@@ -44,8 +45,9 @@ public class Main{
         System.out.println("4. Delete Book");
         System.out.println("5. Show Book By Title");
         System.out.println("6. Show Author");
-        System.out.println("7. Add Favorite");
-        System.out.println("8. Remove Favorite");
+        System.out.println("7. Update Author");
+        System.out.println("8. Add Favorite");
+        System.out.println("9. Remove Favorite");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -86,10 +88,14 @@ public class Main{
                 break;
 
             case 7:
-                addFavorite();
+                updateAuthor();
                 break;
 
             case 8:
+                addFavorite();
+                break;
+
+            case 9:
                 removeFavorite();
                 break;
 
@@ -113,9 +119,50 @@ public class Main{
         for (int i = 0; i < counter; i++) {
             if(authors[i].getAuthor().equals(auth)){
                 System.out.println(authors[i]);
+                System.out.println(authors[i].getDebut());
+                System.out.println(authors[i].getBibliography());
+            }
+        }
+    }
+
+    private static void updateAuthor() {
+
+        System.out.print("Book Id: ");
+        int bId = scan.nextInt();
+        scan.nextLine();
+
+        System.out.print("New Author: ");
+        String auth = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                authors[i].setAuthor(auth);
             }
         }
 
+        System.out.print("New Debut: ");
+        String dbt = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                authors[i].setDebut(dbt);
+            }
+        }
+
+        System.out.print("New Bibliography: ");
+        String bib = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+
+            if(books[i].getBookId() == bId){
+
+                authors[i].setBibliography(bib);
+            }
+        }
     }
 
     private static void showBookByTitle() {

@@ -1,6 +1,6 @@
 package com.exempel;
 
-public class Books extends Main{
+public class Books{
 
     protected int bookId;
     private String title;
