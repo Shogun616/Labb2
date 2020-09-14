@@ -2,25 +2,23 @@ package com.exempel;
 
 public class Author extends Books{
 
-    private int authorId;
     private String author;
     private String debut;
     private String bibliography;
 
-    public Author(int bookId, String title, int authorId, String author, String debut, String bibliography) {
-        super(bookId, title);
-        this.authorId = authorId;
+    public Author(int bookId, String title, String year, String genre, double price, String author, String debut, String bibliography) {
+        super(bookId, title, year, genre, price);
         this.author = author;
         this.debut = debut;
         this.bibliography = bibliography;
     }
 
-    public int getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    @Override
+    public void showInfo() {
+        super.showInfo();
+        System.out.println(author);
+        System.out.println(debut);
+        System.out.println(bibliography);
     }
 
     public String getAuthor() {
@@ -50,8 +48,7 @@ public class Author extends Books{
     @Override
     public String toString() {
         return "Author{" +
-                "authorId=" + authorId +
-                ", author='" + author + '\'' +
+                "author='" + author + '\'' +
                 ", debut='" + debut + '\'' +
                 ", bibliography='" + bibliography + '\'' +
                 '}';

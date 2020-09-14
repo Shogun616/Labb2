@@ -1,14 +1,14 @@
 package com.exempel;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{
 
+    static ArrayList<String> list = new ArrayList<>();
+
     static Books[] books = new Books[5];
     static Author[] authors = new Author[5];
-    static Price[] prices = new Price[5];
-    static Year[] years = new Year[5];
-    static Genre[] genres = new Genre[5];
 
     static boolean repeat = true;
     static String decision;
@@ -43,6 +43,9 @@ public class Main{
         System.out.println("3. Update Book");
         System.out.println("4. Delete Book");
         System.out.println("5. Show Book By Title");
+        System.out.println("6. Show Author");
+        System.out.println("7. Add Favorite");
+        System.out.println("8. Remove Favorite");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -78,10 +81,41 @@ public class Main{
                 showBookByTitle();
                 break;
 
+            case 6:
+                showAuthor();
+                break;
+
+            case 7:
+                addFavorite();
+                break;
+
+            case 8:
+                removeFavorite();
+                break;
+
             default:
                 System.out.println("Invalid command! Try again!");
 
         }
+    }
+
+    private static void addFavorite() {
+    }
+
+    private static void removeFavorite() {
+    }
+
+    private static void showAuthor() {
+
+        System.out.println("Authors name: ");
+        String auth = scan.nextLine();
+
+        for (int i = 0; i < counter; i++) {
+            if(authors[i].getAuthor().equals(auth)){
+                System.out.println(authors[i]);
+            }
+        }
+
     }
 
     private static void showBookByTitle() {
@@ -137,9 +171,9 @@ public class Main{
 
         for (int i = 0; i < counter; i++) {
 
-            if(genres[i].getGenre().equals(genre)){
+            if(books[i].getGenre().equals(genre)){
 
-                genres[i].setGenre(genre);
+                books[i].setGenre(genre);
             }
         }
 
@@ -148,9 +182,9 @@ public class Main{
 
         for (int i = 0; i < counter; i++) {
 
-            if(years[i].getYear().equals(year)){
+            if(books[i].getYear().equals(year)){
 
-                years[i].setYear(year);
+                books[i].setYear(year);
             }
         }
 
@@ -160,9 +194,9 @@ public class Main{
 
         for (int i = 0; i < counter; i++) {
 
-            if(prices[i].getPrice() == price){
+            if(books[i].getPrice() == price){
 
-                prices[i].setPrice(price);
+                books[i].setPrice(price);
             }
         }
 
@@ -250,7 +284,7 @@ public class Main{
 
             if(books[i].getBookId() == bId){
 
-                genres[i].setGenre(gnr);
+                books[i].setGenre(gnr);
             }
         }
 
@@ -261,7 +295,7 @@ public class Main{
 
             if(books[i].getBookId() == bId){
 
-                years[i].setYear(year);
+                books[i].setYear(year);
             }
         }
 
@@ -273,52 +307,53 @@ public class Main{
 
             if(books[i].getBookId() == bId){
 
-                prices[i].setPrice(price);
+                books[i].setPrice(price);
             }
         }
     }
 
     private static void fillMockDB() {
 
-        Books b1 = new Books(1, "Dracula");
+        Books b1 = new Books(1, "Dracula","1897", " Gothic Horror", 10);
         books[counter] = b1;
         counter++;
 
-        Books b2 = new Books(2, "The Dark Tower: The Gunslinger");
+        Books b2 = new Books(2, "The Dark Tower: The Gunslinger", "1982", "Fantasy/Western", 10);
         books[counter] = b2;
         counter++;
 
-        Books b3 = new Books(3, "The Man In The High Castle");
+        Books b3 = new Books(3, "The Man In The High Castle", "1962", "Alternative History", 10);
         books[counter] = b3;
         counter++;
 
-        Books b4 = new Books(4, "Metro 2033");
+        Books b4 = new Books(4, "Metro 2033", "2002", "Post-Apocalyptic", 10);
         books[counter] = b4;
         counter++;
 
-        Books b5 = new Books(5, "Pride And Prejudice");
+        Books b5 = new Books(5, "Pride And Prejudice", "1813", "Romance", 10);
         books[counter] = b5;
         counter++;
 
-        Author a1 = new Author(1, "Dracula,", 1, "Bram Stoker", "1875", "12");
+        Author a1 = new Author(1, "Dracula,", "1897", "Bram Stoker", 10, "Bram Stoker", "1875", "12");
         authors[counter] = a1;
         counter++;
 
-        Author a2 = new Author(2, "The Dark Tower: The Gunslinger,", 2, "Stephen King", "1974", "62");
+        Author a2 = new Author(2, "The Dark Tower: The Gunslinger", "1982", "Fantasy/Western", 10, "Stephen King", "1974", "62");
         authors[counter] = a2;
         counter++;
 
-        Author a3 = new Author(3, "The Man In The High Castle,", 3, "Philip K. Dick", "1950", "49");
+        Author a3 = new Author(3, "The Man In The High Castle", "1962", "Alternative History", 10, "Philip K. Dick", "1950", "49");
         authors[counter] = a3;
         counter++;
 
-        Author a4 = new Author(4, "Metro 2033,", 4, "Dmitry Glukhovsky", "2001", "7");
+        Author a4 = new Author(4, "Metro 2033", "2002", "Post-Apocalyptic", 10, "Bram Stoker", "2001", "7");
         authors[counter] = a4;
         counter++;
 
-        Author a5 = new Author(5, "Pride And Prejudice,", 5, "Jane Austen", "1787", "7");
+        Author a5 = new Author(5, "Pride And Prejudice", "1813", "Romance", 10, "Jane Austen", "1787", "7");
         authors[counter] = a5;
         counter++;
+
     }
 
     public static void main(String[] args) {
