@@ -20,17 +20,16 @@ public class BookManagement{
 
         for (Books b: books) {
             if(b.getBookId().equalsIgnoreCase(bookId)){
-                b.setPrice(price);
+                b.setBookId(bookId);
                 b.setTitle(title);
-                b.setTitle(bookId);
-                b.setTitle(author);
-                b.setTitle(year);
-                b.setTitle(genre);
+                b.setAuthor(author);
+                b.setGenre(genre);
+                b.setYear(year);
+                b.setPrice(price);
             }
         }
 
     }
-
 
     public static void viewBook(){
 
@@ -39,11 +38,50 @@ public class BookManagement{
         }
     }
 
-    public static void showBookByTitle(String title){
+    public static void showTitle(String title){
+
         for(Books b: books){
             if(b.getTitle().equalsIgnoreCase(title)){
                 System.out.println(b);
             }
         }
     }
+
+    public static void showAuthor(String author){
+
+        for (Books b: books){
+            if (b.getAuthor().equalsIgnoreCase(author)){
+                System.out.println(b);
+            }
+        }
+    }
+
+    public static void showYear(String year){
+
+        for (Books b: books){
+            if (b.getYear().equalsIgnoreCase(year)){
+                System.out.println(b);
+            }
+        }
+    }
+
+    public static void showGenre(String genre){
+
+        for (Books b: books){
+            if (b.getGenre().equalsIgnoreCase(genre)){
+                System.out.println(b);
+            }
+        }
+    }
+
+    public static void showPrice(double price){
+
+        for (Books b: books){
+            if (b.getPrice()==(price)){
+                System.out.println(b);
+            }
+        }
+    }
 }
+
+

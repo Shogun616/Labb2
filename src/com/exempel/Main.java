@@ -8,9 +8,9 @@ public class Main{
     static String decision;
     static Scanner scan = new Scanner(System.in);
 
-    static Books[] books = new Books[10];
+    static Books[] bookDB = new Books[10];
     static int counter = 0;
-    
+
    public static  void options(){
 
         boolean exit = true;
@@ -61,7 +61,6 @@ public class Main{
                 break;
             case 2:
                 viewBook();
-                fillMockDB();
                 break;
             case 3:
                 updateBook();
@@ -105,7 +104,7 @@ public class Main{
         String year = scan.nextLine();
         
         System.out.println("Price: ");
-        double price = scan.nextInt();
+        double price = scan.nextDouble();
 
         Books b = new Books(bookId, title, author, genre, year, price);
 
@@ -116,6 +115,11 @@ public class Main{
 
        BookManagement.viewBook();
 
+        for (int i = 0; i < counter; i++) {
+
+            System.out.println(bookDB[i]);
+        }
+
     }
 
     public static void updateBook(){
@@ -123,21 +127,20 @@ public class Main{
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
-        System.out.print("New Title: ");
+        System.out.println("new Title: ");
         String title = scan.nextLine();
 
         System.out.println("New Author: ");
         String author = scan.nextLine();
 
-        System.out.print("New Genre: ");
+        System.out.println("New Genre: ");
         String genre = scan.nextLine();
 
-        System.out.print("New Year: ");
+        System.out.println("New Year: ");
         String year = scan.nextLine();
 
-        System.out.print("New Price:");
+        System.out.println("New Price: ");
         double price = scan.nextDouble();
-        scan.nextLine();
 
         BookManagement.updateBook(bookId, title, author, genre, year, price);
 
@@ -156,28 +159,28 @@ public class Main{
         System.out.println("Title: ");
         String title = scan.nextLine();
 
-        BookManagement.showBookByTitle(title);
+        BookManagement.showTitle(title);
     }
 
     private static void fillMockDB() {
         Books b1 = new Books("13467", "Dracula", "Bram Stoker", "Horror", "1897", 100);
-        books[counter] = b1;
+        bookDB[counter] = b1;
         counter++;
 
         Books b2 = new Books("59846", "The Dark Tower: The Gunslinger", "Stephen King", "Fantasy", "1982", 150);
-        books[counter] = b2;
+        bookDB[counter] = b2;
         counter++;
 
         Books b3 = new Books("29461", "The Man In The High Castle", "Philip K. Dick", "Alternate History", "1962", 120);
-        books[counter] = b3;
+        bookDB[counter] = b3;
         counter++;
 
         Books b4 = new Books("30679", "Metro 2033", "Dmitry Glukhovsky", "Post-Apocalyptic", "2005", 180);
-        books[counter] = b4;
+        bookDB[counter] = b4;
         counter++;
 
         Books b5 = new Books("50314", "Pride And Prejudice", "Jane Austin", "Romance", "1813", 110);
-        books[counter] = b5;
+        bookDB[counter] = b5;
         counter++;
     }
 
