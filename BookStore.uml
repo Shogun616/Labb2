@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.exempel</OriginalElement>
+  <nodes>
+    <node x="56.0" y="0.0">com.exempel.Books</node>
+    <node x="157.0" y="230.0">com.exempel.Main</node>
+    <node x="108.0" y="80.0">com.exempel.Author</node>
+    <node x="0.0" y="155.0">com.exempel.BookManagement</node>
+    <node x="0.0" y="80.0">com.exempel.Genre</node>
+    <node x="0.0" y="230.0">com.exempel.Favorite</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.exempel.Author" target="com.exempel.Books">
+      <point x="0.0" y="-15.0" />
+      <point x="156.0" y="55.0" />
+      <point x="122.0" y="55.0" />
+      <point x="22.0" y="15.0" />
+    </edge>
+    <edge source="com.exempel.Genre" target="com.exempel.Books">
+      <point x="0.0" y="-15.0" />
+      <point x="44.0" y="55.0" />
+      <point x="78.0" y="55.0" />
+      <point x="-22.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="110.5" y="132.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

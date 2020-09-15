@@ -2,18 +2,17 @@ package com.exempel;
 
 public class Books{
 
-    protected int bookId;
+    private String bookId;
     private String title;
+    private String author;
     private String year;
     private String genre;
     private double price;
 
-    public Books() {
-    }
-
-    public Books(int bookId, String title, String year, String genre, double price){
-        this.title = title;
+    public Books(String bookId, String title, String author, String year, String genre, double price){
         this.bookId = bookId;
+        this.title = title;
+        this.author = author;
         this.year = year;
         this.genre = genre;
 
@@ -24,19 +23,20 @@ public class Books{
         }
     }
 
-    public void showInfo(){
-        System.out.println(bookId);
-        System.out.println(title);
-        System.out.println(genre);
-        System.out.println(year);
-    }
-
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getTitle() {
@@ -78,8 +78,9 @@ public class Books{
     @Override
     public String toString() {
         return "Books{" +
-                "bookId=" + bookId +
+                "bookId='" + bookId + '\'' +
                 ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
                 ", year='" + year + '\'' +
                 ", genre='" + genre + '\'' +
                 ", price=" + price +
