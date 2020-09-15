@@ -61,6 +61,7 @@ public class Main{
                 break;
             case 2:
                 viewBook();
+                fillMockDB();
                 break;
             case 3:
                 updateBook();
