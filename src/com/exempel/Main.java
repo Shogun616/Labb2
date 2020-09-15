@@ -7,8 +7,11 @@ public class Main{
     static boolean repeat = true;
     static String decision;
     static Scanner scan = new Scanner(System.in);
+
+    static Books[] books = new Books[10];
+    static int counter = 0;
     
-   public static  void  options(){
+   public static  void options(){
 
         boolean exit = true;
 
@@ -76,12 +79,11 @@ public class Main{
 
     public static void main(String[] args) {
 
-       //fillMockDB();
+       fillMockDB();
 
         while (repeat){
             menu();
         }
-
     }
 
     public static void addBook(){
@@ -153,7 +155,29 @@ public class Main{
         System.out.println("Title: ");
         String title = scan.nextLine();
 
-        BookManagement.viewBook();
+        BookManagement.showBookByTitle(title);
+    }
+
+    private static void fillMockDB() {
+        Books b1 = new Books("13467", "Dracula", "Bram Stoker", "Horror", "1897", 100);
+        books[counter] = b1;
+        counter++;
+
+        Books b2 = new Books("59846", "The Dark Tower: The Gunslinger", "Stephen King", "Fantasy", "1982", 150);
+        books[counter] = b2;
+        counter++;
+
+        Books b3 = new Books("29461", "The Man In The High Castle", "Philip K. Dick", "Alternate History", "1962", 120);
+        books[counter] = b3;
+        counter++;
+
+        Books b4 = new Books("30679", "Metro 2033", "Dmitry Glukhovsky", "Post-Apocalyptic", "2005", 180);
+        books[counter] = b4;
+        counter++;
+
+        Books b5 = new Books("50314", "Pride And Prejudice", "Jane Austin", "Romance", "1813", 110);
+        books[counter] = b5;
+        counter++;
     }
 
 }

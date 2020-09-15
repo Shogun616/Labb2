@@ -6,7 +6,6 @@ public class BookManagement{
 
     private static ArrayList<Books> books = new ArrayList<>();
 
-
     public static void addBook(Books b){
 
         books.add(b);
