@@ -4,7 +4,7 @@ public class Apocalypse extends Books{
 
     private String apocalypseGenre;
 
-    public Apocalypse(String bookId, String title, String author, String year, String genre, double price) {
+    public Apocalypse(String bookId, String title, String author, String year, String genre, double price, String apocalypseGenre) {
         super(bookId, title, author, year, genre, price);
         this.apocalypseGenre = apocalypseGenre;
     }

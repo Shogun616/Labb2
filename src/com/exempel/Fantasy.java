@@ -4,7 +4,7 @@ public class Fantasy extends Books{
 
     private String fantasyGenre;
 
-    public Fantasy(String bookId, String title, String author, String year, String genre, double price) {
+    public Fantasy(String bookId, String title, String author, String year, String genre, double price, String fantasyGenre) {
         super(bookId, title, author, year, genre, price);
         this.fantasyGenre = fantasyGenre;
     }

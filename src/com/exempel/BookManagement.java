@@ -6,6 +6,16 @@ public class BookManagement{
 
     private static final ArrayList<Books> books = new ArrayList<>();
 
+    private static final ArrayList<Romance> romances = new ArrayList<>();
+
+    private static final ArrayList<Apocalypse> apocalypses = new ArrayList<>();
+
+    private static final ArrayList<History> histories = new ArrayList<>();
+
+    private static final ArrayList<Fantasy> fantasies = new ArrayList<>();
+
+    private static final ArrayList<Horror> horrors = new ArrayList<>();
+
     public static void addBook(Books b){
 
         books.add(b);
@@ -79,6 +89,67 @@ public class BookManagement{
         for (Books b: books){
             if (b.getPrice()==(price)){
                 System.out.println(b);
+            }
+        }
+    }
+
+    public static void listOfGenre(String romanceGenre, String horrorGenre, String apocalypseGenre, String fantasyGenre, String historyGenre){
+        for (Romance r: romances){
+            if(r.getRomanceGenre().equalsIgnoreCase(romanceGenre)){
+                System.out.println(r);
+            }
+        }
+        for (Horror h: horrors){
+            if(h.getHorrorGenre().equalsIgnoreCase(horrorGenre)){
+                System.out.println(h);
+            }
+        }
+        for (Apocalypse a: apocalypses){
+            if(a.getApocalypseGenre().equalsIgnoreCase(apocalypseGenre)){
+                System.out.println(a);
+            }
+        }
+        for (Fantasy f: fantasies){
+            if(f.getFantasyGenre().equalsIgnoreCase(fantasyGenre)){
+                System.out.println(f);
+            }
+        }
+        for (History y: histories){
+            if(y.getHistoryGenre().equalsIgnoreCase(historyGenre)){
+                System.out.println(y);
+            }
+        }
+    }
+
+    public static void updateListOfGenre(String romanceGenre, String horrorGenre, String apocalypseGenre, String fantasyGenre, String historyGenre){
+
+        for (Romance r: romances){
+            if(r.getRomanceGenre().equalsIgnoreCase(romanceGenre)){
+                r.setRomanceGenre(romanceGenre);
+            }
+        }
+
+        for (Horror h: horrors){
+            if(h.getHorrorGenre().equalsIgnoreCase(horrorGenre)){
+                h.setHorrorGenre(horrorGenre);
+            }
+        }
+
+        for (Apocalypse a: apocalypses){
+            if(a.getApocalypseGenre().equalsIgnoreCase(apocalypseGenre)){
+                a.setApocalypseGenre(apocalypseGenre);
+            }
+        }
+
+        for (Fantasy f: fantasies){
+            if(f.getFantasyGenre().equalsIgnoreCase(fantasyGenre)){
+                f.setFantasyGenre(fantasyGenre);
+            }
+        }
+
+        for (History y: histories){
+            if(y.getHistoryGenre().equalsIgnoreCase(historyGenre)){
+                y.setHistoryGenre(historyGenre);
             }
         }
     }
