@@ -16,4 +16,9 @@ public class Apocalypse extends Books{
     public void setApocalypseGenre(String apocalypseGenre) {
         this.apocalypseGenre = apocalypseGenre;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "apocalypseGenre: " + apocalypseGenre;
+    }
 }

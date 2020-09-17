@@ -16,4 +16,9 @@ public class Horror extends Books{
     public void setHorrorGenre(String horrorGenre) {
         this.horrorGenre = horrorGenre;
     }
+
+    @Override
+    public String toString(){
+        return super.toString()+ "horrorGenre: " + horrorGenre;
+    }
 }

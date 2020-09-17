@@ -8,9 +8,6 @@ public class Main{
     static String decision;
     static Scanner scan = new Scanner(System.in);
 
-    static Books[] bookDB = new Books[10];
-    static int counter = 0;
-
    public static  void options(){
 
         boolean exit = true;
@@ -28,7 +25,6 @@ public class Main{
     }
 
     public static void menu() {
-
         System.out.println();
         System.out.println("              BookStore              ");
         System.out.println("======================================");
@@ -36,13 +32,22 @@ public class Main{
         System.out.println("======================================");
         System.out.println("1. Add Book");
         System.out.println("2. Show Book");
-        System.out.println("3. Update Book");
-        System.out.println("4. Delete Book");
-        System.out.println("5. Show Book By Title");
-        System.out.println("6. Show Author");
-        System.out.println("7. Show Genre");
-        System.out.println("8. Show Price");
-        System.out.println("9. Show Year");
+        System.out.println("3. Delete Book");
+        System.out.println("4. Update title");
+        System.out.println("5. Update Price");
+        System.out.println("6. Update Author");
+        System.out.println("7. Update Genre");
+        System.out.println("8. Update Year");
+        System.out.println("9. Show Title");
+        System.out.println("10. Show Author");
+        System.out.println("11. Show Genre");
+        System.out.println("12. Show Year");
+        System.out.println("13. Show Price");
+        System.out.println("14. Show Horror List");
+        System.out.println("15. Show History List");
+        System.out.println("16. Show Apocalypse List");
+        System.out.println("17. Show Fantasy List");
+        System.out.println("18. Show Romance List");
         System.out.println("0. Exit");
 
         System.out.println("\nMake your choice");
@@ -58,176 +63,68 @@ public class Main{
                 repeat = false;
                 break;
             case 1:
-                addBook();
+                BookManagement.addBook();
                 break;
             case 2:
-                viewBook();
+                BookManagement.viewBook();
                 break;
             case 3:
-                updateBook();
+                BookManagement.removeBook();
                 break;
             case 4:
-                removeBook();
+                BookManagement.updateTitle();
                 break;
             case 5:
-                showBookByTitle();
+                BookManagement.updatePrice();
                 break;
             case 6:
-                showAuthor();
+                BookManagement.updateAuthor();
                 break;
             case 7:
-                showGenre();
+                BookManagement.updateGenre();
                 break;
             case 8:
-                showPrice();
+                BookManagement.updateYear();
                 break;
             case 9:
-                showYear();
+                BookManagement.showTitle();
                 break;
+            case 10:
+                BookManagement.showAuthor();
+                break;
+            case 11:
+                BookManagement.showGenre();
+                break;
+            case 12:
+                BookManagement.showYear();
+                break;
+            case 13:
+                BookManagement.showPrice();
+                break;
+            case 14:
+                BookManagement.showHorrorList();
+                break;
+            case 15:
+                BookManagement.showHistoryList();
+                break;
+            case 16:
+                BookManagement.showApocalypseList();
+                break;
+            case 17:
+                BookManagement.showFantasyList();
+                break;
+            case 18:
+                BookManagement.showRomanceList();
+                break;
+
             default:
                 System.out.println("Invalid command! Try again!");
-
         }
-    }
-
-    public static void addBook(){
-
-        System.out.println("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.println("title: ");
-        String title = scan.nextLine();
-
-        System.out.println("Author: ");
-        String author = scan.nextLine();
-
-        System.out.println("Year: ");
-        String year = scan.nextLine();
-
-        System.out.println("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.println("Price: ");
-        double price = scan.nextDouble();
-
-        Books b = new Books(bookId, title, author, year, genre, price);
-
-        BookManagement.addBook(b);
-    }
-
-    public static void viewBook(){
-
-        BookManagement.viewBook();
-
-        for (int i = 0; i < counter; i++) {
-
-            System.out.println(bookDB[i]);
-        }
-
-    }
-
-    public static void updateBook(){
-
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.println("new Title: ");
-        String title = scan.nextLine();
-
-        System.out.println("New Author: ");
-        String author = scan.nextLine();
-
-        System.out.println("New Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.println("New Year: ");
-        String year = scan.nextLine();
-
-        System.out.println("New Price: ");
-        double price = scan.nextDouble();
-
-        BookManagement.updateBook(bookId, title, author, genre, year, price);
-
-    }
-
-    public static void removeBook(){
-
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        BookManagement.removeBook(bookId);
-    }
-
-    private static void showBookByTitle() {
-
-        System.out.println("Title: ");
-        String title = scan.nextLine();
-
-        BookManagement.showTitle(title);
-
-        for (int i = 0; i < counter; i++) {
-
-            System.out.println(bookDB[i]);
-        }
-    }
-
-    private static void fillMockDB() {
-        Books b1 = new Books("13467", "Dracula", "Bram Stoker", "1897", "Gothic Horror", 100);
-        bookDB[counter] = b1;
-        counter++;
-
-        Books b2 = new Books("59846", "The Dark Tower: The Gunslinger", "Stephen King", "1982", "Fantasy", 150);
-        bookDB[counter] = b2;
-        counter++;
-
-        Books b3 = new Books("29461", "The Man In The High Castle", "Philip K. Dick", "1962", "Alternative History", 120);
-        bookDB[counter] = b3;
-        counter++;
-
-        Books b4 = new Books("30679", "Metro 2033", "Dmitry Glukhovsky", "2005", "Post-Apocalyptic", 180);
-        bookDB[counter] = b4;
-        counter++;
-
-        Books b5 = new Books("50314", "Pride And Prejudice", "Jane Austin", "1813", "Romance", 110);
-        bookDB[counter] = b5;
-        counter++;
-    }
-
-    private static void showYear() {
-
-        System.out.println("Year: ");
-        String year = scan.nextLine();
-
-        BookManagement.showYear(year);
-    }
-
-    private static void showPrice() {
-
-        System.out.println("Price: ");
-        double price = scan.nextDouble();
-
-        BookManagement.showPrice(price);
-    }
-
-    private static void showGenre() {
-
-        System.out.println("Genre: ");
-        String genre = scan.nextLine();
-
-        BookManagement.showGenre(genre);
-    }
-
-    private static void showAuthor() {
-
-        System.out.println("Authors Name: ");
-        String author = scan.nextLine();
-
-       BookManagement.showAuthor(author);
     }
 
     public static void main(String[] args) {
 
-       fillMockDB();
+        BookManagement.fillMockDB();
 
         while (repeat){
             menu();

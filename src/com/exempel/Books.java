@@ -8,6 +8,15 @@ public class Books{
     private String year;
     private String genre;
     private double price;
+    private boolean favorite = false;
+
+    public boolean isFavorite(){
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite){
+        this.favorite = favorite;
+    }
 
     public Books(String bookId, String title, String author, String year, String genre, double price){
         this.bookId = bookId;

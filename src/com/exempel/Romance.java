@@ -16,4 +16,9 @@ public class Romance extends Books{
     public void setRomanceGenre(String romanceGenre) {
         this.romanceGenre = romanceGenre;
     }
+
+    @Override
+    public String toString(){
+        return super.toString()+ "romanceGenre: " + romanceGenre;
+    }
 }
