@@ -7,7 +7,7 @@ public class BookManagement{
 
     static Scanner scan = new Scanner(System.in);
 
-    private static ArrayList<Books> books = new ArrayList<>();
+    private static final ArrayList<Books> books = new ArrayList<>();
 
     public static void addBook(Books b){
         books.add(b);
@@ -17,6 +17,15 @@ public class BookManagement{
         books.removeIf(b -> b.getBookId().equalsIgnoreCase(bookId));
     }
 
+    public static void updateAuthor(String bookId, String author){
+        for (Books b: books) {
+            if(b.getBookId().equalsIgnoreCase(bookId)){
+                b.setBookId(bookId);
+                b.setAuthor(author);
+            }
+        }
+    }
+
     public static void updateTitle(String bookId, String title){
         for (Books b: books) {
             if(b.getBookId().equalsIgnoreCase(bookId)){
@@ -24,7 +33,6 @@ public class BookManagement{
                 b.setTitle(title);
             }
         }
-
     }
 
     public static void updatePrice(String bookId, double price){
@@ -57,6 +65,14 @@ public class BookManagement{
     public static void showPrice(double price){
         for (Books b: books){
             if (b.getPrice()==(price)){
+                System.out.println(b);
+            }
+        }
+    }
+
+    public static void showAuthor(String author){
+        for(Books b: books){
+            if(b.getAuthor().equalsIgnoreCase(author)){
                 System.out.println(b);
             }
         }
@@ -135,6 +151,7 @@ public class BookManagement{
         double price = scan.nextDouble();
         scan.nextLine();
 
+
         Books b = new Books(bookId, title, author, year, genre, price);
 
         BookManagement.addBook(b);
@@ -170,7 +187,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void showTitle() {
+    public static void displayTitle() {
         System.out.println("Title: ");
         String title = scan.nextLine();
 
@@ -180,7 +197,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void showPrice() {
+    public static void displayPrice() {
         System.out.println("Price: ");
         double price = scan.nextDouble();
 
@@ -188,6 +205,31 @@ public class BookManagement{
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
+    }
+
+    public static void displayAuthor(){
+        System.out.println("Author: ");
+        String author = scan.nextLine();
+
+        BookManagement.showAuthor(author);
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void updateAuthor(){
+        System.out.print("Book Id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("new Author: ");
+        String author = scan.nextLine();
+
+        BookManagement.updateAuthor(bookId, author);
+        System.out.println("Update complete");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+
     }
 
     public static void updateHorrorList(String bookId, String horrorGenre){
@@ -244,15 +286,193 @@ public class BookManagement{
     }
 
     public static void applyFavorite(String bookId){
+        //hitta booken
+        //ändra värdet på favorit till true.
+        for(Books b: books){
+                b.setFavorite(true);
+                System.out.println(b);
+        }
 
 
-
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
     }
 
     public static void displayFavorite(){
+        //loopa igenom och för varje book om värdet på favorit är true skriv ut den
 
+        for (Books b: books){
+            b.setFavorite(true);
+            System.out.println(b);
+        }
 
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void HorrorBook(){
+        System.out.print("id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("title: ");
+        String title = scan.nextLine();
+
+        System.out.print("Author: ");
+        String author = scan.nextLine();
+
+        System.out.print("Year: ");
+        String year = scan.nextLine();
+
+        System.out.print("Genre: ");
+        String genre = scan.nextLine();
+
+        System.out.print("Price: ");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        System.out.println("Subgenre: ");
+        String subGenre = scan.nextLine();
+
+        Books b = new Horror(bookId, title, author, year, genre, price, subGenre);
+
+        BookManagement.addBook(b);
+        System.out.println("A new book has been added on the list");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void HistoryBook(){
+        System.out.print("id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("title: ");
+        String title = scan.nextLine();
+
+        System.out.print("Author: ");
+        String author = scan.nextLine();
+
+        System.out.print("Year: ");
+        String year = scan.nextLine();
+
+        System.out.print("Genre: ");
+        String genre = scan.nextLine();
+
+        System.out.print("Price: ");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        System.out.println("Subgenre: ");
+        String subGenre = scan.nextLine();
+
+        Books b = new History(bookId, title, author, year, genre, price, subGenre);
+
+        BookManagement.addBook(b);
+        System.out.println("A new book has been added on the list");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void ApocalypseBook(){
+        System.out.print("id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("title: ");
+        String title = scan.nextLine();
+
+        System.out.print("Author: ");
+        String author = scan.nextLine();
+
+        System.out.print("Year: ");
+        String year = scan.nextLine();
+
+        System.out.print("Genre: ");
+        String genre = scan.nextLine();
+
+        System.out.print("Price: ");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        System.out.println("Subgenre: ");
+        String subGenre = scan.nextLine();
+
+        Books b = new Apocalypse(bookId, title, author, year, genre, price, subGenre);
+
+        BookManagement.addBook(b);
+        System.out.println("A new book has been added on the list");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void FantasyBook(){
+        System.out.print("id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("title: ");
+        String title = scan.nextLine();
+
+        System.out.print("Author: ");
+        String author = scan.nextLine();
+
+        System.out.print("Year: ");
+        String year = scan.nextLine();
+
+        System.out.print("Genre: ");
+        String genre = scan.nextLine();
+
+        System.out.print("Price: ");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        System.out.println("Subgenre: ");
+        String subGenre = scan.nextLine();
+
+        Books b = new Fantasy(bookId, title, author, year, genre, price, subGenre);
+
+        BookManagement.addBook(b);
+        System.out.println("A new book has been added on the list");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    public static void RomanceBook(){
+        System.out.print("id: ");
+        String bookId = scan.nextLine();
+
+        System.out.print("title: ");
+        String title = scan.nextLine();
+
+        System.out.print("Author: ");
+        String author = scan.nextLine();
+
+        System.out.print("Year: ");
+        String year = scan.nextLine();
+
+        System.out.print("Genre: ");
+        String genre = scan.nextLine();
+
+        System.out.print("Price: ");
+        double price = scan.nextDouble();
+        scan.nextLine();
+
+        System.out.println("Subgenre: ");
+        String subGenre = scan.nextLine();
+
+        Books b = new Romance(bookId, title, author, year, genre, price, subGenre);
+
+        BookManagement.addBook(b);
+        System.out.println("A new book has been added on the list");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
     }
 }
+
+
 
 

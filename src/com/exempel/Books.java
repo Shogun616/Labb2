@@ -5,8 +5,8 @@ public class Books{
     private String bookId;
     private String title;
     private String author;
-    private String year;
-    private String genre;
+    private final String year;
+    private final String genre;
     private double price;
     private boolean favorite = false;
 
@@ -54,22 +54,6 @@ public class Books{
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public void setPrice(double price) {
