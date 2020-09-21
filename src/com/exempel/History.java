@@ -19,6 +19,6 @@ public class History extends Books{
 
     @Override
     public String toString(){
-        return super.toString()+ "historyGenre: " + historyGenre;
+        return super.toString()+ " History Genre: " + historyGenre;
     }
 }

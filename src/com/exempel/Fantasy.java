@@ -19,6 +19,6 @@ public class Fantasy extends Books{
 
     @Override
     public String toString(){
-        return super.toString()+ "fantasyGenre: " + fantasyGenre;
+        return super.toString()+ " Fantasy Genre: " + fantasyGenre;
     }
 }

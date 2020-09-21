@@ -19,6 +19,6 @@ public class Romance extends Books{
 
     @Override
     public String toString(){
-        return super.toString()+ "romanceGenre: " + romanceGenre;
+        return super.toString()+ " Romance Genre: " + romanceGenre;
     }
 }

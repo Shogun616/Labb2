@@ -19,6 +19,6 @@ public class Horror extends Books{
 
     @Override
     public String toString(){
-        return super.toString()+ "horrorGenre: " + horrorGenre;
+        return super.toString()+ " Horror Genre: " + horrorGenre;
     }
 }
