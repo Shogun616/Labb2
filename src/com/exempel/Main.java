@@ -162,17 +162,11 @@ public class Main{
         String bookId = scan.nextLine();
 
         BookManagement.applyFavorite(bookId);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
-        Main.menu();
     }
 
     private static void showFavorite(){
        
        BookManagement.displayFavorite();
-       System.out.println("Press Enter to return to the menu");
-       scan.nextLine();
-       Main.menu();
     }
 
     private static void updateHorrorList(){
