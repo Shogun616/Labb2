@@ -11,16 +11,16 @@ public class Main{
 
        String decision;
 
-        boolean exit = true;
+        boolean exit = false;
 
-        while (exit) {
+        while (!exit) {
             decision = scan.nextLine();
 
             if (decision.equalsIgnoreCase("no")) {
-                exit = false;
+                exit = true;
                 menu();
             } else if (decision.equalsIgnoreCase("yes")) {
-                exit = false;
+                exit = true;
             }
         }
     }
@@ -43,26 +43,27 @@ public class Main{
         System.out.println("8. Show Title");
         System.out.println("9. Show Price");
         System.out.println();
-        System.out.println("10. Show Horror List");
-        System.out.println("11. Show History List");
-        System.out.println("12. Show Apocalypse List");
-        System.out.println("13. Show Fantasy List");
-        System.out.println("14. Show Romance List");
+        System.out.println("10. Add Apocalypse List");
+        System.out.println("11. Add Fantasy List");
+        System.out.println("12. Add History List");
+        System.out.println("13. Add Horror List");
+        System.out.println("14. Add Romance List");
         System.out.println();
-        System.out.println("15. Update Apocalypse List");
-        System.out.println("16. Update History List");
-        System.out.println("17. Update Horror List");
-        System.out.println("18. Update Fantasy List");
-        System.out.println("19. Update Romance List");
+        System.out.println("15. Show Apocalypse List");
+        System.out.println("16. Show Fantasy List");
+        System.out.println("17. Show History List");
+        System.out.println("18. Show Horror List");
+        System.out.println("19. Show Romance List");
         System.out.println();
-        System.out.println("20. Add Apocalypse List");
-        System.out.println("21. Add History List");
-        System.out.println("22. Add Horror List");
-        System.out.println("23. Add Fantasy List");
-        System.out.println("24. Add Romance List");
+        System.out.println("20. Update Apocalypse List");
+        System.out.println("21. Update Fantasy List");
+        System.out.println("22. Update History List");
+        System.out.println("23. Update Horror List");
+        System.out.println("24. Update Romance List");
         System.out.println();
         System.out.println("25. Add Favorite");
         System.out.println("26. Show Favorite");
+        System.out.println("27. Remove Favorite");
         System.out.println("0.  Exit");
 
         System.out.println("\nMake your choice");
@@ -93,7 +94,7 @@ public class Main{
                 BookManagement.updateTitle();
                 break;
             case 6:
-                BookManagement.displayPrice();
+                BookManagement.updatePrice();
             case 7:
                 BookManagement.displayAuthor();
                 break;
@@ -101,50 +102,50 @@ public class Main{
                 BookManagement.displayTitle();
                 break;
             case 9:
-                BookManagement.updatePrice();
+                BookManagement.displayPrice();
                 break;
             case 10:
-                BookManagement.showHorrorList();
-                break;
-            case 11:
-                BookManagement.showHistoryList();
-            case 12:
-                BookManagement.showApocalypseList();
-                break;
-            case 13:
-                BookManagement.showFantasyList();
-                break;
-            case 14:
-                BookManagement.showRomanceList();
-            case 15:
-                updateApocalypseList();
-                break;
-            case 16:
-                updateHistoryList();
-                break;
-            case 17:
-                updateHorrorList();
-                break;
-            case 18:
-                updateFantasyList();
-                break;
-            case 19:
-                updateRomanceList();
-                break;
-            case 20:
                 BookManagement.ApocalypseBook();
                 break;
-            case 21:
+            case 11:
+                BookManagement.FantasyBook();
+            case 12:
                 BookManagement.HistoryBook();
                 break;
-            case 22:
+            case 13:
                 BookManagement.HorrorBook();
                 break;
+            case 14:
+                BookManagement.RomanceBook();
+            case 15:
+                BookManagement.showApocalypseList();
+                break;
+            case 16:
+                BookManagement.showFantasyList();
+                break;
+            case 17:
+                BookManagement.showHistoryList();
+                break;
+            case 18:
+                BookManagement.showHorrorList();
+                break;
+            case 19:
+                BookManagement.showRomanceList();
+                break;
+            case 20:
+                updateApocalypseList();
+                break;
+            case 21:
+                updateFantasyList();
+                break;
+            case 22:
+                updateHistoryList();
+                break;
             case 23:
-                BookManagement.FantasyBook();
+                updateHorrorList();
                 break;
             case 24:
-                BookManagement.RomanceBook();
+                updateRomanceList();
                 break;
             case 25:
                 addFavorite();
@@ -152,12 +153,18 @@ public class Main{
             case 26:
                 showFavorite();
                 break;
+            case 27:
+                deleteFavorite();
+                break;
             default:
                 System.out.println("Invalid command! Try again!");
         }
     }
 
+
+
     private static void addFavorite(){
+        System.out.println("Please insert new favorite");
         System.out.print("BookId: ");
         String bookId = scan.nextLine();
 
@@ -169,7 +176,17 @@ public class Main{
        BookManagement.displayFavorite();
     }
 
+    private static void deleteFavorite() {
+
+        System.out.println("Which favorite do you want to remove");
+        System.out.print("BookId: ");
+        String bookId = scan.nextLine();
+
+        BookManagement.removeFavorite(bookId);
+    }
+
     private static void updateHorrorList(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -183,6 +200,7 @@ public class Main{
     }
 
     private static void updateHistoryList(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -196,6 +214,7 @@ public class Main{
     }
 
     private static void updateApocalypseList(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -209,6 +228,7 @@ public class Main{
     }
 
     private static void updateFantasyList(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -222,6 +242,7 @@ public class Main{
     }
 
     private static void updateRomanceList(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 

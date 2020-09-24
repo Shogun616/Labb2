@@ -141,6 +141,7 @@ public class BookManagement{
                 }
             }
         }
+        System.out.println("Update Complete");
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
@@ -154,6 +155,7 @@ public class BookManagement{
                 }
             }
         }
+        System.out.println("Update Complete");
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
@@ -167,6 +169,7 @@ public class BookManagement{
                 }
             }
         }
+        System.out.println("Update Complete");
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
@@ -196,6 +199,7 @@ public class BookManagement{
                 }
             }
         }
+        System.out.println("Update Complete");
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
@@ -231,7 +235,18 @@ public class BookManagement{
         Main.menu();
     }
 
+    public static void removeFavorite(String bookId){
+        books.removeIf(b -> b.getBookId().equalsIgnoreCase(bookId));
+
+        System.out.println("Favorite Removed");
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
+        Main.menu();
+    }
+
+    /*                               */
     public static void HorrorBook(){
+        System.out.println("Please insert Horror Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -264,6 +279,7 @@ public class BookManagement{
     }
 
     public static void HistoryBook(){
+        System.out.println("Please insert History Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -296,6 +312,7 @@ public class BookManagement{
     }
 
     public static void ApocalypseBook(){
+        System.out.println("Please insert Apocalypse Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -328,6 +345,7 @@ public class BookManagement{
     }
 
     public static void FantasyBook(){
+        System.out.println("Please insert Fantasy Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -360,6 +378,7 @@ public class BookManagement{
     }
 
     public static void RomanceBook(){
+        System.out.println("Please insert Romance Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -392,6 +411,7 @@ public class BookManagement{
     }
 
     public static void addBook(){
+        System.out.println("Please add the new book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
 
@@ -422,6 +442,7 @@ public class BookManagement{
     }
 
     public static void updateTitle(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -437,6 +458,7 @@ public class BookManagement{
     }
 
     public static void removeBook(){
+        System.out.println("Which book do you want removed?");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -448,7 +470,7 @@ public class BookManagement{
     }
 
     public static void displayTitle() {
-        System.out.println("Title: ");
+        System.out.print("Title: ");
         String title = scan.nextLine();
 
         BookManagement.showTitle(title);
@@ -458,17 +480,17 @@ public class BookManagement{
     }
 
     public static void displayPrice() {
-        System.out.println("Price: ");
+        System.out.print("Price: ");
         double price = scan.nextDouble();
 
-        showPrice(price);
+        BookManagement.showPrice(price);
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
     }
 
     public static void displayAuthor(){
-        System.out.println("Author: ");
+        System.out.print("Author: ");
         String author = scan.nextLine();
 
         BookManagement.showAuthor(author);
@@ -478,6 +500,7 @@ public class BookManagement{
     }
 
     public static void updateAuthor(){
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -493,6 +516,7 @@ public class BookManagement{
     }
 
     public static void updatePrice() {
+        System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
 
@@ -500,6 +524,7 @@ public class BookManagement{
         double price = scan.nextDouble();
 
         BookManagement.updatePrice(bookId, price);
+        System.out.println("Update Complete");
         System.out.println("Press Enter to return to the menu");
         scan.nextLine();
         Main.menu();
