@@ -65,6 +65,7 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
+        Main.menu();
     }
 
     public static void showBookByAuthor(String author){
@@ -73,6 +74,7 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
+        Main.menu();
     }
 
     public static void showHorrorList(){
@@ -166,6 +168,7 @@ public class BookManagement{
                 }
             }
         }
+        System.out.println("Update Complete");
         Main.menu();
     }
 
@@ -195,17 +198,15 @@ public class BookManagement{
 
     public static void displayFavorite(){
         //loopa igenom och för varje book om värdet på favorit är true skriv ut den
-
         for(Book b: books){
             if(b.isFavorite()){
                 System.out.println(b);
             }
         }
-
     }
 
     public static void removeFavorite(String bookId){
-        for ( Book b: books) {
+        for (Book b: books) {
             if (b.getBookId().equalsIgnoreCase(bookId)){
                 b.setFavorite(false);
             }
@@ -214,7 +215,7 @@ public class BookManagement{
     }
 
     /*                               */
-    public static void HorrorBook(){
+    public static void addHorrorBook(){
         System.out.println("Please insert Horror Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
@@ -245,7 +246,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void HistoryBook(){
+    public static void addHistoryBook(){
         System.out.println("Please insert History Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
@@ -276,7 +277,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void ApocalypseBook(){
+    public static void addApocalypseBook(){
         System.out.println("Please insert Apocalypse Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
@@ -307,7 +308,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void FantasyBook(){
+    public static void addFantasyBook(){
         System.out.println("Please insert Fantasy Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();
@@ -338,7 +339,7 @@ public class BookManagement{
         Main.menu();
     }
 
-    public static void RomanceBook(){
+    public static void addRomanceBook(){
         System.out.println("Please insert Romance Book");
         System.out.print("id: ");
         String bookId = scan.nextLine();

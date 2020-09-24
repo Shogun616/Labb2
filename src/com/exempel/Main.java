@@ -106,18 +106,18 @@ public class Main{
                 BookManagement.displayBookByPrice();
                 break;
             case 10:
-                BookManagement.ApocalypseBook();
+                BookManagement.addApocalypseBook();
                 break;
             case 11:
-                BookManagement.FantasyBook();
+                BookManagement.addFantasyBook();
             case 12:
-                BookManagement.HistoryBook();
+                BookManagement.addHistoryBook();
                 break;
             case 13:
-                BookManagement.HorrorBook();
+                BookManagement.addHorrorBook();
                 break;
             case 14:
-                BookManagement.RomanceBook();
+                BookManagement.addRomanceBook();
             case 15:
                 BookManagement.showApocalypseList();
                 break;
@@ -149,20 +149,20 @@ public class Main{
                 updateRomanceBook();
                 break;
             case 25:
-                addFavorite();
+                addFavoriteBook();
                 break;
             case 26:
                 showFavorite();
                 break;
             case 27:
-                deleteFavorite();
+                deleteFavoriteBook();
                 break;
             default:
                 System.out.println("Invalid command! Try again!");
         }
     }
 
-    private static void addFavorite(){
+    private static void addFavoriteBook(){
         System.out.println("Please insert new favorite");
         System.out.print("BookId: ");
         String bookId = scan.nextLine();
@@ -171,12 +171,10 @@ public class Main{
     }
 
     private static void showFavorite(){
-       
        BookManagement.displayFavorite();
     }
 
-    private static void deleteFavorite() {
-
+    private static void deleteFavoriteBook() {
         System.out.println("Which favorite do you want to remove");
         System.out.print("BookId: ");
         String bookId = scan.nextLine();
@@ -245,7 +243,6 @@ public class Main{
     }
 
     public static void main(String[] args) {
-
         while (repeat){
             menu();
         }
