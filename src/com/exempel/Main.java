@@ -26,7 +26,8 @@ public class Main{
     }
 
     public static void menu() {
-        System.out.println();
+        System.out.println("Press Enter to return to the menu");
+        scan.nextLine();
         System.out.println("              BookStore              ");
         System.out.println("======================================");
         System.out.println("              Main Menu             ");
@@ -88,21 +89,21 @@ public class Main{
                 BookManagement.removeBook();
                 break;
             case 4:
-                BookManagement.updateAuthor();
+                BookManagement.updateBookByAuthor();
                 break;
             case 5:
-                BookManagement.updateTitle();
+                BookManagement.updateBookByTitle();
                 break;
             case 6:
-                BookManagement.updatePrice();
+                BookManagement.updateBookByPrice();
             case 7:
-                BookManagement.displayAuthor();
+                BookManagement.displayBookByAuthor();
                 break;
             case 8:
-                BookManagement.displayTitle();
+                BookManagement.displayBookByTitle();
                 break;
             case 9:
-                BookManagement.displayPrice();
+                BookManagement.displayBookByPrice();
                 break;
             case 10:
                 BookManagement.ApocalypseBook();
@@ -133,19 +134,19 @@ public class Main{
                 BookManagement.showRomanceList();
                 break;
             case 20:
-                updateApocalypseList();
+                updateApocalypseBook();
                 break;
             case 21:
-                updateFantasyList();
+                updateFantasyBook();
                 break;
             case 22:
-                updateHistoryList();
+                updateHistoryBook();
                 break;
             case 23:
-                updateHorrorList();
+                updateHorrorBook();
                 break;
             case 24:
-                updateRomanceList();
+                updateRomanceBook();
                 break;
             case 25:
                 addFavorite();
@@ -183,7 +184,7 @@ public class Main{
         BookManagement.removeFavorite(bookId);
     }
 
-    private static void updateHorrorList(){
+    private static void updateHorrorBook(){
         System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
@@ -191,13 +192,11 @@ public class Main{
         System.out.print("New subgenre: ");
         String horrorGenre = scan.nextLine();
 
-        BookManagement.updateHorrorList(bookId, horrorGenre);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
+        BookManagement.updateHorrorBook(bookId, horrorGenre);
         Main.menu();
     }
 
-    private static void updateHistoryList(){
+    private static void updateHistoryBook(){
         System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
@@ -205,13 +204,11 @@ public class Main{
         System.out.print("New subgenre: ");
         String historyGenre = scan.nextLine();
 
-        BookManagement.updateHistoryList(bookId, historyGenre);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
+        BookManagement.updateHistoryBook(bookId, historyGenre);
         Main.menu();
     }
 
-    private static void updateApocalypseList(){
+    private static void updateApocalypseBook(){
         System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
@@ -219,13 +216,11 @@ public class Main{
         System.out.print("New subgenre: ");
         String apocalypseGenre = scan.nextLine();
 
-        BookManagement.updateApocalypseList(bookId, apocalypseGenre);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
+        BookManagement.updateApocalypseBook(bookId, apocalypseGenre);
         Main.menu();
     }
 
-    private static void updateFantasyList(){
+    private static void updateFantasyBook(){
         System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
@@ -233,13 +228,11 @@ public class Main{
         System.out.print("New subgenre: ");
         String fantasyGenre = scan.nextLine();
 
-        BookManagement.updateFantasyList(bookId, fantasyGenre);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
+        BookManagement.updateFantasyBook(bookId, fantasyGenre);
         Main.menu();
     }
 
-    private static void updateRomanceList(){
+    private static void updateRomanceBook(){
         System.out.println("Please add the new data");
         System.out.print("Book Id: ");
         String bookId = scan.nextLine();
@@ -247,9 +240,7 @@ public class Main{
         System.out.print("New subgenre: ");
         String romanceGenre = scan.nextLine();
 
-        BookManagement.updateRomanceList(bookId,romanceGenre);
-        System.out.println("Press Enter to return to the menu");
-        scan.nextLine();
+        BookManagement.updateRomanceBook(bookId,romanceGenre);
         Main.menu();
     }
 

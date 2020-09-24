@@ -1,10 +1,10 @@
 package com.exempel;
 
-public class Horror extends Books{
+public class HorrorBook extends Book {
 
     private String horrorGenre;
 
-    public Horror(String bookId, String title, String author, String year, String genre, double price, String horrorGenre) {
+    public HorrorBook(String bookId, String title, String author, String year, String genre, double price, String horrorGenre) {
         super(bookId, title, author, year, genre, price);
         this.horrorGenre = horrorGenre;
     }

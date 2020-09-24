@@ -1,6 +1,6 @@
 package com.exempel;
 
-public class Books{
+public class Book {
 
     private String bookId;
     private String title;
@@ -18,7 +18,7 @@ public class Books{
         this.favorite = favorite;
     }
 
-    public Books(String bookId, String title, String author, String year, String genre, double price){
+    public Book(String bookId, String title, String author, String year, String genre, double price){
         this.bookId = bookId;
         this.title = title;
         this.author = author;
