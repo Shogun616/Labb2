@@ -243,7 +243,6 @@ public class BookManagement{
         scan.nextLine();
         Main.menu();
     }
-
     /*                               */
     public static void HorrorBook(){
         System.out.println("Please insert Horror Book");

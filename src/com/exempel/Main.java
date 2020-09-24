@@ -161,8 +161,6 @@ public class Main{
         }
     }
 
-
-
     private static void addFavorite(){
         System.out.println("Please insert new favorite");
         System.out.print("BookId: ");
