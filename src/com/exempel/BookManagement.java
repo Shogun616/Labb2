@@ -48,7 +48,7 @@ public class BookManagement{
         for (Book b: books){
             System.out.println(b);
         }
-        Main.menu();
+
     }
 
     public static void showBookByTitle(String title){
@@ -65,7 +65,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showBookByAuthor(String author){
@@ -74,7 +73,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showHorrorList(){
@@ -83,7 +81,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showHistoryList(){
@@ -92,7 +89,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showApocalypseList(){
@@ -101,7 +97,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showFantasyList(){
@@ -110,7 +105,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void showRomanceList(){
@@ -119,7 +113,6 @@ public class BookManagement{
                 System.out.println(b);
             }
         }
-        Main.menu();
     }
 
     public static void updateHorrorBook(String bookId, String horrorGenre){

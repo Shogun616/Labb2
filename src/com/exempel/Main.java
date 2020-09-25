@@ -7,7 +7,7 @@ public class Main{
     static boolean repeat = true;
     static Scanner scan = new Scanner(System.in);
 
-   public static  void options(){
+   public static void options(){
 
        String decision;
 
@@ -72,7 +72,6 @@ public class Main{
         scan.nextLine();
 
         switch (choice) {
-
             case 0:
                 System.out.println("Exit? (yes/no)");
                 options();
@@ -247,5 +246,4 @@ public class Main{
             menu();
         }
     }
-
 }
