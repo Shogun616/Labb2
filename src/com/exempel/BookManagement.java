@@ -179,18 +179,17 @@ public class BookManagement{
     }
 
     public static void applyFavorite(String bookId){
-        //hitta booken
-        //ändra värdet på favorit till true.
         for (Book b: books) {
             if(b.getBookId().equalsIgnoreCase(bookId)){
                 b.setBookId(bookId);
                 b.setFavorite(true);
             }
         }
+        System.out.println("A new favorite has been added");
+        Main.menu();
     }
 
     public static void displayFavorite(){
-        //loopa igenom och för varje book om värdet på favorit är true skriv ut den
         for(Book b: books){
             if(b.isFavorite()){
                 System.out.println(b);
@@ -207,7 +206,7 @@ public class BookManagement{
         System.out.println("Favorite Removed");
     }
 
-    /*                               */
+    /*----------------------------------------------------*/
     public static void addHorrorBook(){
         System.out.println("Please insert Horror Book");
         System.out.print("id: ");
@@ -260,7 +259,7 @@ public class BookManagement{
         double price = scan.nextDouble();
         scan.nextLine();
 
-        System.out.println("Subgenre: ");
+        System.out.print("Subgenre: ");
         String subGenre = scan.nextLine();
 
         Book b = new HistoryBook(bookId, title, author, year, genre, price, subGenre);
