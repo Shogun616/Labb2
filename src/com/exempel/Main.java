@@ -44,27 +44,9 @@ public class Main{
         System.out.println("8. Show Title");
         System.out.println("9. Show Price");
         System.out.println();
-        System.out.println("10. Add Apocalypse List");
-        System.out.println("11. Add Fantasy List");
-        System.out.println("12. Add History List");
-        System.out.println("13. Add Horror List");
-        System.out.println("14. Add Romance List");
-        System.out.println();
-        System.out.println("15. Show Apocalypse List");
-        System.out.println("16. Show Fantasy List");
-        System.out.println("17. Show History List");
-        System.out.println("18. Show Horror List");
-        System.out.println("19. Show Romance List");
-        System.out.println();
-        System.out.println("20. Update Apocalypse List");
-        System.out.println("21. Update Fantasy List");
-        System.out.println("22. Update History List");
-        System.out.println("23. Update Horror List");
-        System.out.println("24. Update Romance List");
-        System.out.println();
-        System.out.println("25. Add Favorite");
-        System.out.println("26. Show Favorite");
-        System.out.println("27. Remove Favorite");
+        System.out.println("10. Add Favorite");
+        System.out.println("11. Show Favorite");
+        System.out.println("12. Remove Favorite");
         System.out.println("0.  Exit");
 
         System.out.println("\nMake your choice");
@@ -95,6 +77,7 @@ public class Main{
                 break;
             case 6:
                 BookManagement.updateBookByPrice();
+                break;
             case 7:
                 BookManagement.displayBookByAuthor();
                 break;
@@ -105,140 +88,17 @@ public class Main{
                 BookManagement.displayBookByPrice();
                 break;
             case 10:
-                BookManagement.addApocalypseBook();
+                BookManagement.addFavoriteBook();
                 break;
             case 11:
-                BookManagement.addFantasyBook();
+                BookManagement.showFavorite();
+                break;
             case 12:
-                BookManagement.addHistoryBook();
-                break;
-            case 13:
-                BookManagement.addHorrorBook();
-                break;
-            case 14:
-                BookManagement.addRomanceBook();
-            case 15:
-                BookManagement.showApocalypseList();
-                break;
-            case 16:
-                BookManagement.showFantasyList();
-                break;
-            case 17:
-                BookManagement.showHistoryList();
-                break;
-            case 18:
-                BookManagement.showHorrorList();
-                break;
-            case 19:
-                BookManagement.showRomanceList();
-                break;
-            case 20:
-                updateApocalypseBook();
-                break;
-            case 21:
-                updateFantasyBook();
-                break;
-            case 22:
-                updateHistoryBook();
-                break;
-            case 23:
-                updateHorrorBook();
-                break;
-            case 24:
-                updateRomanceBook();
-                break;
-            case 25:
-                addFavoriteBook();
-                break;
-            case 26:
-                showFavorite();
-                break;
-            case 27:
-                deleteFavoriteBook();
+                BookManagement.deleteFavoriteBook();
                 break;
             default:
                 System.out.println("Invalid command! Try again!");
         }
-    }
-
-    private static void addFavoriteBook(){
-        System.out.println("Please insert new favorite");
-        System.out.print("BookId: ");
-        String bookId = scan.nextLine();
-
-        BookManagement.applyFavorite(bookId);
-    }
-
-    private static void showFavorite(){
-       BookManagement.displayFavorite();
-    }
-
-    private static void deleteFavoriteBook() {
-        System.out.println("Which favorite do you want to remove");
-        System.out.print("BookId: ");
-        String bookId = scan.nextLine();
-
-        BookManagement.removeFavorite(bookId);
-    }
-
-    private static void updateHorrorBook(){
-        System.out.println("Please add the new data");
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("New subgenre: ");
-        String horrorGenre = scan.nextLine();
-
-        BookManagement.updateHorrorBook(bookId, horrorGenre);
-        Main.menu();
-    }
-
-    private static void updateHistoryBook(){
-        System.out.println("Please add the new data");
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("New subgenre: ");
-        String historyGenre = scan.nextLine();
-
-        BookManagement.updateHistoryBook(bookId, historyGenre);
-        Main.menu();
-    }
-
-    private static void updateApocalypseBook(){
-        System.out.println("Please add the new data");
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("New subgenre: ");
-        String apocalypseGenre = scan.nextLine();
-
-        BookManagement.updateApocalypseBook(bookId, apocalypseGenre);
-        Main.menu();
-    }
-
-    private static void updateFantasyBook(){
-        System.out.println("Please add the new data");
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("New subgenre: ");
-        String fantasyGenre = scan.nextLine();
-
-        BookManagement.updateFantasyBook(bookId, fantasyGenre);
-        Main.menu();
-    }
-
-    private static void updateRomanceBook(){
-        System.out.println("Please add the new data");
-        System.out.print("Book Id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("New subgenre: ");
-        String romanceGenre = scan.nextLine();
-
-        BookManagement.updateRomanceBook(bookId,romanceGenre);
-        Main.menu();
     }
 
     public static void main(String[] args) {

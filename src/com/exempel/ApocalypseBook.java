@@ -2,23 +2,15 @@ package com.exempel;
 
 public class ApocalypseBook extends Book {
 
-    private String apocalypseGenre;
+    private final String subGenre;
 
-    public ApocalypseBook(String bookId, String title, String author, String year, String genre, double price, String apocalypseGenre) {
+    public ApocalypseBook(String bookId, String title, String author, String year, String genre, double price, String subGenre) {
         super(bookId, title, author, year, genre, price);
-        this.apocalypseGenre = apocalypseGenre;
-    }
-
-    public String getApocalypseGenre() {
-        return apocalypseGenre;
-    }
-
-    public void setApocalypseGenre(String apocalypseGenre) {
-        this.apocalypseGenre = apocalypseGenre;
+        this.subGenre = subGenre;
     }
 
     @Override
     public String toString() {
-        return super.toString()+ " Apocalypse Genre: " + apocalypseGenre;
+        return super.toString()+ " SubGenre: " + subGenre;
     }
 }

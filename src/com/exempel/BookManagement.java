@@ -8,9 +8,34 @@ public class BookManagement{
     static Scanner scan = new Scanner(System.in);
 
     private static final ArrayList<Book> books = new ArrayList<>();
+    private static final ArrayList<Book> horrorBooks = new ArrayList<>();
+    private static final ArrayList<Book> historyBooks = new ArrayList<>();
+    private static final ArrayList<Book> apocalypseBooks = new ArrayList<>();
+    private static final ArrayList<Book> fantasyBooks = new ArrayList<>();
+    private static final ArrayList<Book> romanceBooks = new ArrayList<>();
 
-    public static void addBook(Book b){
-        books.add(b);
+    public static void addHorrorBook(HorrorBook b){
+        horrorBooks.add(b);
+    }
+
+    public static void addHistoryBook(HistoryBook c){
+        historyBooks.add(c);
+    }
+
+    public static void addApocalypseBook(ApocalypseBook d){
+        apocalypseBooks.add(d);
+    }
+
+    public static void addFantasyBook(FantasyBook e){
+        fantasyBooks.add(e);
+    }
+
+    public static void addRomanceBook(RomanceBook f){
+        romanceBooks.add(f);
+    }
+
+    public static void addBook(Book g){
+        books.add(g);
     }
 
     public static void removeBook(String bookId){
@@ -75,109 +100,6 @@ public class BookManagement{
         }
     }
 
-    public static void showHorrorList(){
-        for (Book b: books){
-            if(b instanceof HorrorBook){
-                System.out.println(b);
-            }
-        }
-    }
-
-    public static void showHistoryList(){
-        for (Book b: books){
-            if(b instanceof HistoryBook){
-                System.out.println(b);
-            }
-        }
-    }
-
-    public static void showApocalypseList(){
-        for (Book b: books){
-            if(b instanceof ApocalypseBook){
-                System.out.println(b);
-            }
-        }
-    }
-
-    public static void showFantasyList(){
-        for (Book b: books){
-            if(b instanceof FantasyBook){
-                System.out.println(b);
-            }
-        }
-    }
-
-    public static void showRomanceList(){
-        for (Book b: books){
-            if(b instanceof RomanceBook){
-                System.out.println(b);
-            }
-        }
-    }
-
-    public static void updateHorrorBook(String bookId, String horrorGenre){
-        for (Book b: books){
-            if(b.getBookId().equalsIgnoreCase(bookId)){
-                if(b instanceof HorrorBook){
-                    ((HorrorBook) b).setHorrorGenre(horrorGenre);
-                }
-            }
-        }
-        System.out.println("Update Complete");
-        Main.menu();
-    }
-
-    public static void updateHistoryBook(String bookId, String historyGenre){
-        for (Book b: books){
-            if(b.getBookId().equalsIgnoreCase(bookId)){
-                if(b instanceof HistoryBook){
-                    ((HistoryBook) b).setHistoryGenre(historyGenre);
-                }
-            }
-        }
-        System.out.println("Update Complete");
-        Main.menu();
-    }
-
-    public static void updateFantasyBook(String bookId, String fantasyGenre){
-        for (Book b: books){
-            if(b.getBookId().equalsIgnoreCase(bookId)){
-                if(b instanceof FantasyBook){
-                    ((FantasyBook) b).setFantasyGenre(fantasyGenre);
-                }
-            }
-        }
-        System.out.println("Update Complete");
-        Main.menu();
-    }
-
-    public static void updateApocalypseBook(String bookId, String apocalypseGenre){
-        for (Book b: books){
-
-            if(b.getBookId().equalsIgnoreCase(bookId)){
-
-                if(b instanceof ApocalypseBook){
-                    ((ApocalypseBook) b).setApocalypseGenre(apocalypseGenre);
-                }
-            }
-        }
-        System.out.println("Update Complete");
-        Main.menu();
-    }
-
-    public static void updateRomanceBook(String bookId, String romanceGenre){
-        for (Book b: books){
-
-            if(b.getBookId().equalsIgnoreCase(bookId)){
-                if(b instanceof RomanceBook){
-                    ((RomanceBook) b).setRomanceGenre(romanceGenre);
-                }
-            }
-        }
-        System.out.println("Update Complete");
-        Main.menu();
-    }
-
     public static void applyFavorite(String bookId){
         for (Book b: books) {
             if(b.getBookId().equalsIgnoreCase(bookId)){
@@ -206,162 +128,6 @@ public class BookManagement{
         System.out.println("Favorite Removed");
     }
 
-    /*----------------------------------------------------*/
-    public static void addHorrorBook(){
-        System.out.println("Please insert Horror Book");
-        System.out.print("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Author: ");
-        String author = scan.nextLine();
-
-        System.out.print("Year: ");
-        String year = scan.nextLine();
-
-        System.out.print("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.print("Price: ");
-        double price = scan.nextDouble();
-        scan.nextLine();
-
-        System.out.print("Subgenre: ");
-        String subGenre = scan.nextLine();
-
-        Book b = new HorrorBook(bookId, title, author, year, genre, price, subGenre);
-
-        BookManagement.addBook(b);
-        System.out.println("A new book has been added on the list");
-        Main.menu();
-    }
-
-    public static void addHistoryBook(){
-        System.out.println("Please insert History Book");
-        System.out.print("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Author: ");
-        String author = scan.nextLine();
-
-        System.out.print("Year: ");
-        String year = scan.nextLine();
-
-        System.out.print("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.print("Price: ");
-        double price = scan.nextDouble();
-        scan.nextLine();
-
-        System.out.print("Subgenre: ");
-        String subGenre = scan.nextLine();
-
-        Book b = new HistoryBook(bookId, title, author, year, genre, price, subGenre);
-
-        BookManagement.addBook(b);
-        System.out.println("A new book has been added on the list");
-        Main.menu();
-    }
-
-    public static void addApocalypseBook(){
-        System.out.println("Please insert Apocalypse Book");
-        System.out.print("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Author: ");
-        String author = scan.nextLine();
-
-        System.out.print("Year: ");
-        String year = scan.nextLine();
-
-        System.out.print("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.print("Price: ");
-        double price = scan.nextDouble();
-        scan.nextLine();
-
-        System.out.print("Subgenre: ");
-        String subGenre = scan.nextLine();
-
-        Book b = new ApocalypseBook(bookId, title, author, year, genre, price, subGenre);
-
-        BookManagement.addBook(b);
-        System.out.println("A new book has been added on the list");
-        Main.menu();
-    }
-
-    public static void addFantasyBook(){
-        System.out.println("Please insert Fantasy Book");
-        System.out.print("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Author: ");
-        String author = scan.nextLine();
-
-        System.out.print("Year: ");
-        String year = scan.nextLine();
-
-        System.out.print("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.print("Price: ");
-        double price = scan.nextDouble();
-        scan.nextLine();
-
-        System.out.print("Subgenre: ");
-        String subGenre = scan.nextLine();
-
-        Book b = new FantasyBook(bookId, title, author, year, genre, price, subGenre);
-
-        BookManagement.addBook(b);
-        System.out.println("A new book has been added on the list");
-        Main.menu();
-    }
-
-    public static void addRomanceBook(){
-        System.out.println("Please insert Romance Book");
-        System.out.print("id: ");
-        String bookId = scan.nextLine();
-
-        System.out.print("title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Author: ");
-        String author = scan.nextLine();
-
-        System.out.print("Year: ");
-        String year = scan.nextLine();
-
-        System.out.print("Genre: ");
-        String genre = scan.nextLine();
-
-        System.out.print("Price: ");
-        double price = scan.nextDouble();
-        scan.nextLine();
-
-        System.out.print("Subgenre: ");
-        String subGenre = scan.nextLine();
-
-        Book b = new RomanceBook(bookId, title, author, year, genre, price, subGenre);
-
-        BookManagement.addBook(b);
-        System.out.println("A new book has been added on the list");
-        Main.menu();
-    }
-
     public static void addBook(){
         System.out.println("Please add the new book");
         System.out.print("id: ");
@@ -383,10 +149,22 @@ public class BookManagement{
         double price = scan.nextDouble();
         scan.nextLine();
 
+        System.out.print("Subgenre: ");
+        String subgenre = scan.nextLine();
 
-        Book b = new Book(bookId, title, author, year, genre, price);
+        HorrorBook  b = new HorrorBook(bookId, title, author, year, genre, price, subgenre);
+        HistoryBook c = new HistoryBook(bookId, title, author, year, genre, price, subgenre);
+        ApocalypseBook d = new ApocalypseBook(bookId, title, author, year, genre, price, subgenre);
+        FantasyBook e = new FantasyBook(bookId, title, author, year, genre, price, subgenre);
+        RomanceBook f = new RomanceBook(bookId, title, author, year, genre, price, subgenre);
+        Book g = new Book(bookId, title, author, year, genre, price);
 
-        BookManagement.addBook(b);
+        BookManagement.addHorrorBook(b);
+        BookManagement.addHistoryBook(c);
+        BookManagement.addApocalypseBook(d);
+        BookManagement.addFantasyBook(e);
+        BookManagement.addRomanceBook(f);
+        BookManagement.addBook(g);
         System.out.println("A new book has been added on the list");
         Main.menu();
     }
@@ -465,8 +243,24 @@ public class BookManagement{
         System.out.println("Update Complete");
         Main.menu();
     }
+
+    public static void addFavoriteBook(){
+        System.out.println("Please insert new favorite");
+        System.out.print("BookId: ");
+        String bookId = scan.nextLine();
+
+        BookManagement.applyFavorite(bookId);
+    }
+
+    public static void showFavorite(){
+        BookManagement.displayFavorite();
+    }
+
+    public static void deleteFavoriteBook() {
+        System.out.println("Which favorite do you want to remove");
+        System.out.print("BookId: ");
+        String bookId = scan.nextLine();
+
+        BookManagement.removeFavorite(bookId);
+    }
 }
-
-
-
-
