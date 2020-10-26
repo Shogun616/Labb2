@@ -8,34 +8,35 @@ public class BookManagement{
     static Scanner scan = new Scanner(System.in);
 
     private static final ArrayList<Book> books = new ArrayList<>();
-    private static final ArrayList<Book> horrorBooks = new ArrayList<>();
+    private static final ArrayList<HorrorBook> horrorBooks = new ArrayList<>();
     private static final ArrayList<Book> historyBooks = new ArrayList<>();
     private static final ArrayList<Book> apocalypseBooks = new ArrayList<>();
     private static final ArrayList<Book> fantasyBooks = new ArrayList<>();
     private static final ArrayList<Book> romanceBooks = new ArrayList<>();
 
-    public static void addHorrorBook(HorrorBook b){
-        horrorBooks.add(b);
+
+    public static void addBook(Book b){
+        books.add(b);
     }
 
-    public static void addHistoryBook(HistoryBook c){
-        historyBooks.add(c);
+    public static void addApocalypseBook(ApocalypseBook c){
+        apocalypseBooks.add(c);
     }
 
-    public static void addApocalypseBook(ApocalypseBook d){
-        apocalypseBooks.add(d);
+    public static void addHistoryBook(HistoryBook d){
+        historyBooks.add(d);
     }
 
-    public static void addFantasyBook(FantasyBook e){
-        fantasyBooks.add(e);
+    public static void addHorrorBook(HorrorBook e){
+        horrorBooks.add(e);
     }
 
-    public static void addRomanceBook(RomanceBook f){
-        romanceBooks.add(f);
+    public static void addFantasyBook(FantasyBook f){
+        fantasyBooks.add(f);
     }
 
-    public static void addBook(Book g){
-        books.add(g);
+    public static void addRomanceBook(RomanceBook g){
+        romanceBooks.add(g);
     }
 
     public static void removeBook(String bookId){
@@ -152,19 +153,20 @@ public class BookManagement{
         System.out.print("Subgenre: ");
         String subgenre = scan.nextLine();
 
-        HorrorBook  b = new HorrorBook(bookId, title, author, year, genre, price, subgenre);
-        HistoryBook c = new HistoryBook(bookId, title, author, year, genre, price, subgenre);
-        ApocalypseBook d = new ApocalypseBook(bookId, title, author, year, genre, price, subgenre);
-        FantasyBook e = new FantasyBook(bookId, title, author, year, genre, price, subgenre);
-        RomanceBook f = new RomanceBook(bookId, title, author, year, genre, price, subgenre);
-        Book g = new Book(bookId, title, author, year, genre, price);
+        Book b = new Book(bookId, title, author, year, genre, price);
+        ApocalypseBook c = new ApocalypseBook(bookId, title, author, year, genre, price, subgenre);
+        HistoryBook d = new HistoryBook(bookId, title, author, year, genre, price, subgenre);
+        HorrorBook  e = new HorrorBook(bookId, title, author, year, genre, price, subgenre);
+        FantasyBook f = new FantasyBook(bookId, title, author, year, genre, price, subgenre);
+        RomanceBook g = new RomanceBook(bookId, title, author, year, genre, price, subgenre);
 
-        BookManagement.addHorrorBook(b);
-        BookManagement.addHistoryBook(c);
-        BookManagement.addApocalypseBook(d);
-        BookManagement.addFantasyBook(e);
-        BookManagement.addRomanceBook(f);
-        BookManagement.addBook(g);
+        BookManagement.addBook(b);
+        BookManagement.addApocalypseBook(c);
+        BookManagement.addHistoryBook(d);
+        BookManagement.addHorrorBook(e);
+        BookManagement.addFantasyBook(f);
+        BookManagement.addRomanceBook(g);
+
         System.out.println("A new book has been added on the list");
         Main.menu();
     }
